@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Collabs | E-Learning Initiative</title>
+    <meta name="title" content="Collabs | E-Learning Initiative">
+    <meta name="description" content="Collabs is a student-led digital learning and innovation ecosystem in Pakistan. Connect, learn, and build real-world technology through our secure E-Learning hub.">
+    <meta name="keywords" content="Collabs, E-Learning Pakistan, Student Innovation, AKHSS Collabs, Digital Learning Hub, Peer Mentorship, EdTech Pakistan">
+    <meta name="author" content="Collabs Developers Community">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://your-main-domain.com/"> <!-- UPDATE THIS URL to your actual deployment domain -->
+
+    <!-- Open Graph / Facebook Meta Tags (For social media sharing previews) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-main-domain.com/"> <!-- UPDATE THIS -->
+    <meta property="og:title" content="Collabs | E-Learning Initiative">
+    <meta property="og:description" content="A 100% student-led digital learning and innovation ecosystem bridging the educational divide in Pakistan.">
+    <meta property="og:image" content="https://your-main-domain.com/social-preview.jpg"> <!-- Add a preview image URL here later -->
+
+    <!-- Twitter Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-main-domain.com/"> <!-- UPDATE THIS -->
+    <meta property="twitter:title" content="Collabs | E-Learning Initiative">
+    <meta property="twitter:description" content="A 100% student-led digital learning and innovation ecosystem bridging the educational divide in Pakistan.">
+    <meta property="twitter:image" content="https://your-main-domain.com/social-preview.jpg">
+
+    <!-- Preload critical fonts for performance (Google likes fast sites) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data (JSON-LD) to help Google understand the organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Collabs",
+      "url": "https://your-main-domain.com/",
+      "logo": "https://your-main-domain.com/logo.png",
+      "description": "A 100% student-led digital learning and innovation ecosystem bridging the geographical and educational divide across Pakistan.",
+      "sameAs": [
+        "https://www.instagram.com/akhsscollabs",
+        "https://www.tiktok.com/@akhsscollabs",
+        "https://www.youtube.com/@akhsscollabs"
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-base: #0B0F19; 
+            --bg-card: #151A2A;
+            --border-color: #2A3143;
+            --text-main: #FFFFFF;
+            --text-muted: #94A3B8;
+            --accent-blue: #3B82F6;
+            --accent-purple: #8B5CF6;
+            --hover-glow: rgba(59, 130, 246, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.08), transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A5B4FC 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Flexbox Diamond Layout */
+        .diamond-layout {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out forwards;
+            opacity: 0;
+            
+            flex: 1 1 300px;
+            max-width: 340px; 
+        }
+
+        .card:nth-of-type(1) { animation-delay: 0.1s; }
+        .card:nth-of-type(2) { animation-delay: 0.2s; }
+        .card:nth-of-type(3) { animation-delay: 0.3s; }
+        .card:nth-of-type(4) { animation-delay: 0.4s; }
+        .card:nth-of-type(5) { animation-delay: 0.5s; }
+        .card:nth-of-type(6) { animation-delay: 0.6s; }
+        .card:nth-of-type(7) { animation-delay: 0.7s; }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px -10px var(--hover-glow);
+            background-color: #1A2133;
+        }
+
+        .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.05);
+            color: #FFFFFF !important;
+            background: var(--accent-blue) !important;
+            border-color: var(--accent-blue) !important;
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: var(--border-color);
+            margin: 1.5rem 0;
+            opacity: 0.5;
+        }
+
+        .social-container {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+            justify-content: center;
+            margin-top: 1rem;
+            animation: fadeIn 1s ease-out 0.8s forwards;
+            opacity: 0;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            color: var(--text-main);
+            border-color: var(--text-muted);
+        }
+
+        .social-btn.whatsapp:hover { background: #25D366; border-color: #25D366; color: white; }
+        .social-btn.instagram:hover { background: #E1306C; border-color: #E1306C; color: white; }
+        .social-btn.tiktok:hover { background: #000000; border-color: #333; color: white; }
+        .social-btn.youtube:hover { background: #FF0000; border-color: #FF0000; color: white; }
+        .social-btn.share:hover { background: var(--accent-blue); border-color: var(--accent-blue); color: white; }
+
+        /* Expanding Pill AI Chat Widget */
+        .ai-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #2563EB, #7C3AED);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            height: 60px;
+            width: 60px; 
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            animation-delay: 1.2s;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+        }
+
+        .ai-widget:hover {
+            width: 170px; 
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .ai-icon-container {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #FFFFFF;
+            font-size: 1.6rem;
+            position: relative;
+        }
+
+        .ai-status-dot {
+            position: absolute;
+            top: 15px;
+            right: 12px;
+            width: 10px;
+            height: 10px;
+            background-color: #10B981;
+            border: 2px solid #3F4CF0;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        .ai-text {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 1.05rem;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(-15px);
+            transition: all 0.3s ease;
+        }
+
+        .ai-widget:hover .ai-text {
+            opacity: 1;
+            transform: translateX(0);
+            padding-right: 25px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 2rem 1rem; }
+            header h1 { font-size: 2.8rem; }
+            .diamond-layout {
+                gap: 1rem;
+                margin-bottom: 6rem;
+            }
+            .card {
+                flex: 1 1 100%;
+                max-width: 100%; 
+                padding: 2rem 1.5rem;
+            }
+            .section-divider { display: none; }
+            
+            .ai-widget {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes popIn { from { opacity: 0; transform: scale(0.8) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        @keyframes pulse-dot { 
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Semantic <header> tag helps Google identify the main topic -->
+    <header>
+        <h1>Collabs</h1>
+        <p>A 100% student-led digital learning and innovation ecosystem bridging the educational divide. Connect, learn, lead and build the future.</p>
+    </header>
+
+    <!-- Semantic <main> tag indicating core content -->
+    <main class="diamond-layout">
+        
+        <!-- ROW 1: Onboarding -->
+        <a href="http://drive.google.com/drive/folders/15QejNR1Y4qfbr9FpE58o5drtKBcGkyg8?usp=sharing" target="_blank" class="card" aria-label="Access Collabs Documentation">
+            <div class="card-icon" aria-hidden="true" style="color: #10B981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);"><i class="fa-solid fa-book-open"></i></div>
+            <h2>Documentation</h2>
+            <p>Access our core pillars, official guides, and see how we incubate student-led innovation across the network.</p>
+        </a>
+
+        <a href="https://forms.gle/AikxCFxxiRoBKQXx6" target="_blank" class="card" aria-label="Register for Collabs Platform">
+            <div class="card-icon" aria-hidden="true" style="color: #F59E0B; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2);"><i class="fa-solid fa-id-card-clip"></i></div>
+            <h2>Registration</h2>
+            <p>Join the movement. Enter a unified network of peer mentorship, study groups, and collaborative development.</p>
+        </a>
+
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <!-- ROW 2: Core Ecosystem -->
+        <a href="https://drop.collabs.eu.org/" target="_blank" class="card" aria-label="Visit Collabs Drop">
+            <div class="card-icon" aria-hidden="true" style="color: #3B82F6; background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.2);"><i class="fa-solid fa-layer-group"></i></div>
+            <h2>Collabs Drop</h2>
+            <p>The central digital square. A secure, high-performance platform where students share academic insights and collaborate using dynamic Drops.</p>
+        </a>
+
+        <a href="https://mail.collabs.eu.org/" target="_blank" class="card" aria-label="Access Collabs Mail">
+            <div class="card-icon" aria-hidden="true" style="color: var(--accent-purple); background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.2);"><i class="fa-solid fa-envelope"></i></div>
+            <h2>Collabs Mail</h2>
+            <p>The custom-built email web application acting as the primary communication infrastructure for the ecosystem.</p>
+        </a>
+
+        <a href="https://flow.collabs.eu.org/" target="_blank" class="card" aria-label="Open Collabs Flow Dashboard">
+            <div class="card-icon" aria-hidden="true" style="color: #F43F5E; background: rgba(244, 63, 94, 0.1); border-color: rgba(244, 63, 94, 0.2);"><i class="fa-solid fa-bolt"></i></div>
+            <h2>Collabs Flow</h2>
+            <p>A sleek productivity dashboard. Stay locked in with a Pomodoro timer, interactive Kanban board, and Focus Stream Radio.</p>
+        </a>
+
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <!-- ROW 3: Utilities -->
+        <a href="https://notebooklm.google.com/notebook/316e9ab1-d2f4-4238-893a-c7c51a986c5c" target="_blank" class="card" aria-label="Use Live Chat AI">
+            <div class="card-icon" aria-hidden="true" style="color: #06B6D4; background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2);"><i class="fa-solid fa-robot"></i></div>
+            <h2>Live Chat AI</h2>
+            <p>Interact with our intelligent knowledge base to get instant answers and resources regarding the Collabs platform.</p>
+        </a>
+
+        <a href="https://www.qrlab.eu.org" target="_blank" class="card" aria-label="Visit QR Lab">
+            <div class="card-icon" aria-hidden="true" style="color: #EC4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.2);"><i class="fa-solid fa-qrcode"></i></div>
+            <h2>QR Lab</h2>
+            <p>A powerful utility tool for students and developers to generate and manage custom QR codes instantly.</p>
+        </a>
+
+        <!-- Semantic Navigation for Socials -->
+        <div class="section-divider" aria-hidden="true"></div>
+        <nav class="social-container" aria-label="Social Media Links">
+            <button id="shareBtn" class="social-btn share" title="Share Collabs" aria-label="Share this page">
+                <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+            </button>
+            <a href="https://wa.me/923393152023" target="_blank" class="social-btn whatsapp" title="WhatsApp" aria-label="Contact via WhatsApp">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/akhsscollabs" target="_blank" class="social-btn instagram" title="Instagram" aria-label="Follow on Instagram">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.tiktok.com/@akhsscollabs" target="_blank" class="social-btn tiktok" title="TikTok" aria-label="Follow on TikTok">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.youtube.com/@akhsscollabs" target="_blank" class="social-btn youtube" title="YouTube" aria-label="Subscribe on YouTube">
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+        </nav>
+
+    </main>
+
+    <!-- Expanding Pill AI Chat Widget -->
+    <a href="https://notebooklm.google.com/notebook/316e9ab1-d2f4-4238-893a-c7c51a986c5c" target="_blank" class="ai-widget" aria-label="Open AI Assistant">
+        <div class="ai-icon-container" aria-hidden="true">
+            <i class="fa-solid fa-robot"></i>
+            <div class="ai-status-dot"></div>
+        </div>
+        <div class="ai-text">Chat with AI</div>
+    </a>
+
+    <script>
+        document.getElementById('shareBtn').addEventListener('click', async () => {
+            const shareData = {
+                title: 'Collabs | E-Learning Initiative',
+                text: 'Check out Collabs: A student-led digital learning and innovation ecosystem bridging the educational divide.',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else {
+                    await navigator.clipboard.writeText(window.location.href);
+                    const btn = document.getElementById('shareBtn');
+                    const originalIcon = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+                    btn.style.color = '#10B981';
+                    btn.style.borderColor = '#10B981';
+                    setTimeout(() => {
+                        btn.innerHTML = originalIcon;
+                        btn.style.color = '';
+                        btn.style.borderColor = '';
+                    }, 2000);
+                    alert('Link copied to clipboard!');
+                }
+            } catch (err) {
+                console.error('Error sharing:', err);
+            }
+        });
+    </script>
+</body>
+</html>
