@@ -6,9 +6,10 @@
     
     <!-- Primary SEO Meta Tags -->
     <title>Collabs | E-Learning Initiative</title>
+    <link rel="icon" type="image/png" href="./logo.png">
     <meta name="title" content="Collabs | E-Learning Initiative">
     <meta name="description" content="Collabs is a student-led digital learning and innovation ecosystem in Pakistan. Connect, learn, and build real-world technology through our secure E-Learning hub.">
-    <meta name="keywords" content="Collabs, E-Learning Pakistan, Student Innovation, AKHSS Collabs, Digital Learning Hub, Peer Mentorship, EdTech Pakistan">
+    <meta name="keywords" content="Collabs, E-Learning Pakistan, Student Innovation, Digital Learning Hub, Peer Mentorship, EdTech Pakistan">
     <meta name="author" content="Collabs Developers Community">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://your-main-domain.com/"> <!-- UPDATE THIS URL to your actual deployment domain -->
@@ -80,6 +81,7 @@
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
+            transition: background-color 0.3s ease;
         }
 
         body::before {
@@ -101,6 +103,23 @@
             animation: fadeIn 0.8s ease-out;
         }
 
+        .brand-logo {
+            width: 90px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+            animation: slideUp 0.6s ease-out forwards;
+            cursor: pointer; /* Makes it obvious it's clickable */
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect before clicking */
+        .brand-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
         header h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -110,12 +129,57 @@
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
         }
 
         header p {
             color: var(--text-muted);
             font-size: 1.1rem;
         }
+
+        /* --- POWER UP ANIMATION CLASSES --- */
+        .logo-overdrive {
+            animation: engineStart 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+        }
+
+        .title-overdrive {
+            animation: textSurge 1.8s ease-in-out forwards !important;
+        }
+
+        .body-overdrive {
+            animation: bgSurge 1.8s ease-in-out forwards !important;
+        }
+
+        /* Engine Revving & Blast off */
+        @keyframes engineStart {
+            0% { transform: scale(1); filter: brightness(1); }
+            10% { transform: translateX(-4px) rotate(-3deg) scale(1.02); filter: brightness(1.2); }
+            20% { transform: translateX(4px) rotate(3deg) scale(1.02); }
+            30% { transform: translateX(-5px) rotate(-4deg) scale(1.05); filter: brightness(1.5); }
+            40% { transform: translateX(5px) rotate(4deg) scale(1.05); }
+            50% { transform: translateX(-2px) rotate(-1deg) scale(1.1); }
+            60% { 
+                transform: scale(1.3) translateY(-10px); 
+                filter: brightness(2) drop-shadow(0 0 40px #3B82F6) drop-shadow(0 0 80px #8B5CF6); 
+            } /* The main power blast */
+            80% { transform: scale(1.15) translateY(-5px); filter: brightness(1.5) drop-shadow(0 0 20px #3B82F6); }
+            100% { transform: scale(1); filter: brightness(1); }
+        }
+
+        /* Text Expand & Glow */
+        @keyframes textSurge {
+            0% { letter-spacing: -0.05em; filter: brightness(1); }
+            60% { letter-spacing: 0.15em; filter: brightness(1.5) drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)); transform: scale(1.05); }
+            100% { letter-spacing: -0.05em; filter: brightness(1); }
+        }
+
+        /* Global Grid Flash */
+        @keyframes bgSurge {
+            0% { background-color: var(--bg-base); }
+            60% { background-color: #0E1A33; } /* Flash of energy to the whole site */
+            100% { background-color: var(--bg-base); }
+        }
+        /* --------------------------------- */
 
         /* Flexbox Diamond Layout */
         .diamond-layout {
@@ -154,6 +218,7 @@
         .card:nth-of-type(5) { animation-delay: 0.5s; }
         .card:nth-of-type(6) { animation-delay: 0.6s; }
         .card:nth-of-type(7) { animation-delay: 0.7s; }
+        .card:nth-of-type(8) { animation-delay: 0.8s; }
 
         .card:hover {
             transform: translateY(-4px);
@@ -345,7 +410,9 @@
 
     <!-- Semantic <header> tag helps Google identify the main topic -->
     <header>
-        <h1>Collabs</h1>
+        <!-- Added IDs for the Power Up Animation targeting -->
+        <img src="./logo2.png" alt="Collabs Logo" class="brand-logo" id="powerButton" title="Initialize System">
+        <h1 id="mainTitle">Collabs</h1>
         <p>A 100% student-led digital learning and innovation ecosystem bridging the educational divide. Connect, learn, lead and build the future.</p>
     </header>
 
@@ -353,12 +420,6 @@
     <main class="diamond-layout">
         
         <!-- ROW 1: Onboarding -->
-        <a href="http://drive.google.com/drive/folders/15QejNR1Y4qfbr9FpE58o5drtKBcGkyg8?usp=sharing" target="_blank" class="card" aria-label="Access Collabs Documentation">
-            <div class="card-icon" aria-hidden="true" style="color: #10B981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);"><i class="fa-solid fa-book-open"></i></div>
-            <h2>Documentation</h2>
-            <p>Access our core pillars, official guides, and see how we incubate student-led innovation across the network.</p>
-        </a>
-
         <a href="https://forms.gle/AikxCFxxiRoBKQXx6" target="_blank" class="card" aria-label="Register for Collabs Platform">
             <div class="card-icon" aria-hidden="true" style="color: #F59E0B; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2);"><i class="fa-solid fa-id-card-clip"></i></div>
             <h2>Registration</h2>
@@ -386,10 +447,16 @@
             <p>A sleek productivity dashboard. Stay locked in with a Pomodoro timer, interactive Kanban board, and Focus Stream Radio.</p>
         </a>
 
+        <a href="https://evote.collabs.eu.org/" target="_blank" class="card" aria-label="Access Collabs eVote">
+            <div class="card-icon" aria-hidden="true" style="color: #0D9488; background: rgba(13, 148, 136, 0.1); border-color: rgba(13, 148, 136, 0.2);"><i class="fa-solid fa-check-to-slot"></i></div>
+            <h2>Collabs eVote</h2>
+            <p>A highly secure, enterprise-grade digital election ecosystem featuring zero-trust cryptographic auditing and real-time analytics.</p>
+        </a>
+
         <div class="section-divider" aria-hidden="true"></div>
 
         <!-- ROW 3: Utilities -->
-        <a href="https://notebooklm.google.com/notebook/316e9ab1-d2f4-4238-893a-c7c51a986c5c" target="_blank" class="card" aria-label="Use Live Chat AI">
+        <a href="https://gemini.google.com/gem/192jFdpoi0bHJhhHEnFx_UClCzhb7WMfW?usp=sharing" target="_blank" class="card" aria-label="Use Live Chat AI">
             <div class="card-icon" aria-hidden="true" style="color: #06B6D4; background: rgba(6, 182, 212, 0.1); border-color: rgba(6, 182, 212, 0.2);"><i class="fa-solid fa-robot"></i></div>
             <h2>Live Chat AI</h2>
             <p>Interact with our intelligent knowledge base to get instant answers and resources regarding the Collabs platform.</p>
@@ -399,6 +466,12 @@
             <div class="card-icon" aria-hidden="true" style="color: #EC4899; background: rgba(236, 72, 153, 0.1); border-color: rgba(236, 72, 153, 0.2);"><i class="fa-solid fa-qrcode"></i></div>
             <h2>QR Lab</h2>
             <p>A powerful utility tool for students and developers to generate and manage custom QR codes instantly.</p>
+        </a>
+
+        <a href="./eAttendance.exe" download="eAttendance.exe" class="card" aria-label="Download eAttendance Software">
+            <div class="card-icon" aria-hidden="true" style="color: #10B981; background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2);"><i class="fa-solid fa-clipboard-user"></i></div>
+            <h2>eAttendance</h2>
+            <p>Download our custom desktop software for seamless attendance tracking and management.</p>
         </a>
 
         <!-- Semantic Navigation for Socials -->
@@ -424,7 +497,7 @@
     </main>
 
     <!-- Expanding Pill AI Chat Widget -->
-    <a href="https://notebooklm.google.com/notebook/316e9ab1-d2f4-4238-893a-c7c51a986c5c" target="_blank" class="ai-widget" aria-label="Open AI Assistant">
+    <a href="https://gemini.google.com/gem/192jFdpoi0bHJhhHEnFx_UClCzhb7WMfW?usp=sharing" target="_blank" class="ai-widget" aria-label="Open AI Assistant">
         <div class="ai-icon-container" aria-hidden="true">
             <i class="fa-solid fa-robot"></i>
             <div class="ai-status-dot"></div>
@@ -433,6 +506,28 @@
     </a>
 
     <script>
+        // POWER UP ANIMATION LOGIC
+        const powerButton = document.getElementById('powerButton');
+        const mainTitle = document.getElementById('mainTitle');
+
+        powerButton.addEventListener('click', () => {
+            // Prevent triggering again if the animation is already running
+            if (powerButton.classList.contains('logo-overdrive')) return;
+
+            // Add the animation classes to trigger the visual effects
+            powerButton.classList.add('logo-overdrive');
+            mainTitle.classList.add('title-overdrive');
+            document.body.classList.add('body-overdrive');
+
+            // Remove the classes after 1.8s (matching the CSS keyframe duration) so it can be clicked again
+            setTimeout(() => {
+                powerButton.classList.remove('logo-overdrive');
+                mainTitle.classList.remove('title-overdrive');
+                document.body.classList.remove('body-overdrive');
+            }, 1800);
+        });
+
+        // NATIVE SHARE BUTTON LOGIC
         document.getElementById('shareBtn').addEventListener('click', async () => {
             const shareData = {
                 title: 'Collabs | E-Learning Initiative',
