@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react"; // 1. IMPORT ANALYTICS
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Collabs | E-Learning Initiative",
-  // ADD THE ICONS OBJECT RIGHT HERE 👇
   icons: {
     icon: '/logo.png', 
-    apple: '/logo.png', // This ensures it looks good if someone saves it to an iPhone home screen
+    apple: '/logo.png',
   },
   description: "Collabs is a student-led digital learning and innovation ecosystem in Pakistan. Connect, learn, and build real-world technology through our secure E-Learning hub.",
   keywords: ["Collabs", "E-Learning Pakistan", "Student Innovation", "Digital Learning Hub", "Peer Mentorship", "EdTech Pakistan"],
@@ -52,6 +52,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <Analytics /> {/* 2. RENDER THE ANALYTICS WIDGET HERE */}
       </body>
     </html>
   );
