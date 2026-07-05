@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react"; // 1. IMPORT ANALYTICS
+import { Analytics } from "@vercel/analytics/react"; 
 import "./globals.css";
 
 export const metadata: Metadata = {
+  // Required for opengraph-image to work properly on social media
+  metadataBase: new URL('https://www.collabs.eu.org'),
+  
   title: "Collabs | E-Learning Initiative",
   icons: {
     icon: '/logo.png', 
@@ -16,6 +19,9 @@ export const metadata: Metadata = {
     type: "website",
     title: "Collabs | E-Learning Initiative",
     description: "A 100% student-led digital learning and innovation ecosystem bridging the educational divide in Pakistan.",
+    url: 'https://www.collabs.eu.org',
+    siteName: 'Collabs Hub',
+    locale: 'en_US',
   },
   twitter: {
     card: "summary_large_image",
@@ -52,7 +58,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
-        <Analytics /> {/* 2. RENDER THE ANALYTICS WIDGET HERE */}
+        <Analytics />
       </body>
     </html>
   );
