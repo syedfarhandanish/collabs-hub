@@ -224,7 +224,7 @@ export default function Home() {
       details: {
         dateFull: "Saturday, 27 June 2026 · 9:05 PM – 10:50 PM",
         hostedBy: "Ehan Ali & Amna Sahar",
-        attendees: "27 members — Founder, Director, Collaboration Directors, Field Managers, Subject Leads, Club Leads, Coordinators, Ambassadors, Media & Content team",
+        attendees: "27 members: Founder, Director, Collaboration Directors, Field Managers, Subject Leads, Club Leads, Coordinators, Ambassadors, Media & Content team",
         sections: [
           {
             title: "1. SESSION OVERVIEW",
