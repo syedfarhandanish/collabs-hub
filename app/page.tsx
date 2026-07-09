@@ -203,6 +203,7 @@ export default function Home() {
     { name: 'Collabs Mail', url: 'https://mail.collabs.eu.org/', icon: 'fa-envelope', color: 'text-indigo-500' },
     { name: 'Collabs eVote', url: 'https://evote.collabs.eu.org/', icon: 'fa-check-to-slot', color: 'text-teal-500' },
     { name: 'QR Lab', url: 'https://www.qrlab.eu.org', icon: 'fa-qrcode', color: 'text-slate-400' },
+    { name: 'Collabs Docs', url: 'https://docs.collabs.eu.org/', icon: 'fa-book-open', color: 'text-purple-500' },
   ].filter(link => link.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   // =========================================
@@ -413,7 +414,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* GROUP 2: CAMPUS INFRASTRUCTURE */}
+              {/* GROUP 2: CAMPUS INFRASTRUCTURE & DOCS */}
               <div className="mt-6 md:mt-8">
                 <div className={`flex items-center gap-3 md:gap-4 mb-4 md:mb-6 ${isLight ? 'text-slate-800' : 'text-white'}`}>
                   <div className={`w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center text-lg md:text-xl shadow-sm border transition-colors ${isLight ? 'bg-white border-slate-200 text-teal-500' : 'bg-white/5 border-white/10 text-teal-400'}`}>
@@ -422,7 +423,9 @@ export default function Home() {
                   <h3 className="text-xl md:text-2xl font-bold tracking-tight">Campus Infrastructure</h3>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                  
+                  {/* eVote - Takes up 2 columns on medium & large screens */}
                   <motion.a href="https://evote.collabs.eu.org/" variants={fadeUp} whileHover={{ y: -4 }} className={`spotlight-card col-span-1 md:col-span-2 p-6 md:p-8 rounded-4xl md:rounded-[2.5rem] transition-all duration-300 group flex items-center gap-6 md:gap-8 overflow-hidden relative backdrop-blur-2xl transform-gpu ${isLight ? 'bg-white/70 border border-slate-200 shadow-lg hover:shadow-2xl hover:border-teal-200 hover:shadow-teal-500/20' : 'bg-[#0a0a0a]/70 border border-white/10 shadow-2xl hover:border-white/20'}`}>
                     <div className={`w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-2xl md:rounded-3xl flex items-center justify-center text-2xl md:text-3xl transition-all duration-300 spotlight-content border group-hover:rotate-6 ${isLight ? 'bg-teal-50 text-teal-600 border-teal-100 group-hover:bg-teal-500 group-hover:text-white' : 'bg-white/5 text-white/50 border-white/10 group-hover:bg-teal-500 group-hover:text-white'}`}>
                       <i className="fa-solid fa-check-to-slot"></i>
@@ -434,6 +437,7 @@ export default function Home() {
                     </div>
                   </motion.a>
 
+                  {/* Utilities Stack (eAttendance & QR Lab) - Takes up 1 column */}
                   <motion.div variants={fadeUp} className="col-span-1 grid grid-rows-2 gap-4 md:gap-6">
                     <motion.a href="/eAttendance.exe" download whileHover={{ x: 5 }} className={`spotlight-card p-5 md:p-6 rounded-3xl md:rounded-4xl transition-all duration-300 flex items-center gap-4 md:gap-6 group overflow-hidden backdrop-blur-xl border transform-gpu ${isLight ? 'bg-white/80 border-slate-200 shadow-md hover:shadow-lg hover:border-emerald-200' : 'bg-[#0a0a0a]/80 border-white/10 shadow-xl hover:border-white/20 hover:bg-white/5'}`}>
                       <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-lg md:text-xl transition-all duration-300 spotlight-content border ${isLight ? 'bg-emerald-50 text-emerald-500 border-emerald-100 group-hover:bg-emerald-500 group-hover:text-white' : 'bg-white/5 text-white/50 border-white/10 group-hover:bg-emerald-500 group-hover:text-white'}`}>
@@ -449,6 +453,18 @@ export default function Home() {
                       <h3 className={`text-base md:text-lg font-bold spotlight-content transition-colors ${isLight ? 'text-slate-700 group-hover:text-slate-900' : 'text-slate-300 group-hover:text-white'}`}>QR Lab</h3>
                     </motion.a>
                   </motion.div>
+
+                  {/* Documentations Card - Takes up 1 column */}
+                  <motion.a href="https://docs.collabs.eu.org/" variants={fadeUp} whileHover={{ y: -4 }} className={`spotlight-card col-span-1 p-6 md:p-8 rounded-4xl md:rounded-[2.5rem] transition-all duration-300 group flex flex-col items-start justify-between min-h-50 md:min-h-75 backdrop-blur-2xl transform-gpu ${isLight ? 'bg-white/70 border border-slate-200 shadow-lg hover:shadow-2xl hover:border-purple-200 hover:shadow-purple-500/20' : 'bg-[#0a0a0a]/70 border border-white/10 shadow-2xl hover:border-white/20'}`}>
+                    <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center text-xl md:text-2xl transition-all duration-300 spotlight-content border group-hover:scale-110 ${isLight ? 'bg-purple-50 text-purple-500 border-purple-100 group-hover:bg-purple-500 group-hover:text-white' : 'bg-white/5 text-white/50 border-white/10 group-hover:bg-purple-500 group-hover:text-white'}`}>
+                      <i className="fa-solid fa-book-open"></i>
+                    </div>
+                    <div className="spotlight-content mt-4 md:mt-6">
+                      <h3 className={`text-xl md:text-2xl font-bold mb-1 md:mb-2 tracking-tight transition-colors ${isLight ? 'text-slate-900' : 'text-white'}`}>Collabs Docs</h3>
+                      <p className={`text-xs md:text-sm font-medium leading-relaxed transition-colors ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>Official documentation, open-source resources & guides.</p>
+                    </div>
+                  </motion.a>
+
                 </div>
               </div>
             </motion.div>
@@ -589,7 +605,7 @@ export default function Home() {
                   &copy; {new Date().getFullYear()} Collabs Developers Community.
                 </p>
                 <div className={`flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm font-medium transition-colors ${isLight ? 'text-slate-500' : 'text-slate-500'}`}>
-                  <a href="http://drive.google.com/drive/folders/15QejNR1Y4qfbr9FpE58o5drtKBcGkyg8?usp=sharing" target="_blank" rel="noopener noreferrer" className={`transition-colors ${isLight ? 'hover:text-slate-900' : 'hover:text-white'}`}>Documentation</a>
+                  <a href="https://docs.collabs.eu.org/" target="_blank" rel="noopener noreferrer" className={`transition-colors ${isLight ? 'hover:text-slate-900' : 'hover:text-white'}`}>Documentation</a>
                   <button onClick={() => setIsPrivacyOpen(true)} className={`transition-colors text-left ${isLight ? 'hover:text-slate-900' : 'hover:text-white'}`}>Privacy Policy</button>
                 </div>
               </div>
