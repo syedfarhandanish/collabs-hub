@@ -24,6 +24,7 @@ export default function GlobalModals({ isLight, isCmdOpen, setIsCmdOpen, isPriva
     { name: 'Collabs eVote', url: 'https://evote.collabs.eu.org/', icon: 'fa-check-to-slot', color: 'text-teal-500' },
     { name: 'QR Lab', url: 'https://www.qrlab.eu.org', icon: 'fa-qrcode', color: 'text-slate-400' },
     { name: 'Collabs Docs', url: 'https://docs.collabs.eu.org/', icon: 'fa-book-open', color: 'text-purple-500' },
+    { name: 'Collabs Scholar', url: 'https://scholar.collabs.eu.org/', icon: 'fa-graduation-cap', color: 'text-rose-500' },
   ].filter(link => link.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
