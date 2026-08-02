@@ -11,7 +11,7 @@
 ---
 
 ## 🔗 Live Deployment
-**[View the Live Application Here](https://your-live-link-here.com)**
+**https://www.collabs.eu.org/**
 
 ## 📂 The Collabs Ecosystem
 This hub provides direct, centralized routing to our core applications:
@@ -28,5 +28,5 @@ To run this central hub locally on your machine, follow these steps:
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/your-username/collabs-hub.git](https://github.com/your-username/collabs-hub.git)
+git clone https://github.com/syedfarhandanish/collabs-hub.git
 cd collabs-hub
