@@ -8,7 +8,49 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }
 };
 
-const eventsList = [
+export const eventsList = [
+  {
+    id: 2,
+    title: "Science, Art & Food Exhibition (SAF 2026)",
+    category: "Mega Inter-District Exhibition",
+    type: "Physical Event · Booni, Upper Chitral",
+    date: "25",
+    month: "Oct",
+    year: "2026",
+    isUpcoming: true,
+    description: "Organized in equal partnership by Collabs and Naveed e Falah. Operating under 'Science that Solves. Art that Speaks. Food that Connects.', SAF 2026 invites students from Grades 8–12 to solve community challenges, celebrate art, and showcase culinary heritage.",
+    image: "/saf.jpeg", // Replace with /saf2026-banner.jpeg once uploaded to your public folder
+    participantsText: "Grades 8 – 12",
+    registrationLink: "https://forms.gle/adfFYEGzM7LHbrwc6",
+    details: {
+      dateFull: "Sunday, 25 October 2026 (Tentative)",
+      hostedBy: "Collabs x Naveed e Falah",
+      attendees: "Students (Grades 8–12) across Upper & Lower Chitral and Gilgit-Baltistan",
+      venue: "Booni, Upper Chitral (Exact venue to be confirmed)",
+      sections: [
+        {
+          title: "1. EVENT OVERVIEW",
+          body: "The Science, Art & Food Exhibition (SAF 2026) is a premier, student-led inter-district initiative scheduled for Sunday, October 25, 2026, in Booni, Upper Chitral. Organized in equal partnership by Collabs (A student's initiative towards e-learning) and Naveed e Falah (a grassroots organization dedicated to community empowerment, health, and cultural preservation), the event aims to bridge the educational divide across Upper and Lower Chitral."
+        },
+        {
+          title: "2. EVENT MOTTO",
+          body: "\"Science that Solves. Art that Speaks. Food that Connects.\""
+        },
+        {
+          title: "3. EXHIBITION CATEGORIES",
+          body: "1. SCIENCE SECTION: Features 5 core sub-categories — Biology, Chemistry, Physics, Mathematics, and Computer Science — emphasizing innovative, real-world solutions to local community challenges.\n\n2. ART SECTION: Celebrates creative self-expression, local storytelling, and visual arts across various mediums.\n\n3. FOOD SECTION: Dedicated to local culinary heritage, traditional recipes, and cultural exchange."
+        },
+        {
+          title: "4. JUDGING & COMPETITION MODEL",
+          body: "SAF 2026 utilizes a transparent, cross-institutional judging model designed to foster healthy competition, leadership development, and peer mentorship across participating schools."
+        },
+        {
+          title: "5. ELIGIBILITY & REGISTRATION",
+          body: "Open to all students from Grades 8 through 12 across Upper and Lower Chitral. All project teams and stall presenters must pre-register using the official registration portal."
+        }
+      ]
+    }
+  },
   {
     id: 1,
     title: "Inaugural Launch Session",
@@ -17,13 +59,16 @@ const eventsList = [
     date: "27",
     month: "Jun",
     year: "2026",
+    isUpcoming: false,
     description: "The inaugural launch session aimed to officially activate the Collabs Core Team, introduce the vision and long-term direction of the platform, and discuss early priorities before public launch.",
     image: "/kickoff-meeting.jpeg",
     participantsText: "27 Members",
+    registrationLink: null,
     details: {
       dateFull: "Saturday, 27 June 2026 · 9:05 PM – 10:50 PM",
       hostedBy: "Ehan Ali & Amna Sahar",
       attendees: "27 members: Founder, Director, Collaboration Directors, Field Managers, Subject Leads, Club Leads, Coordinators, Ambassadors, Media & Content team",
+      venue: null,
       sections: [
         {
           title: "1. SESSION OVERVIEW",
@@ -76,13 +121,19 @@ export default function EventsSection({ isLight, setSelectedEvent }: { isLight: 
             <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${isLight ? 'bg-linear-to-tr from-indigo-50 to-transparent' : 'bg-linear-to-tr from-cyan-950/30 to-transparent'}`}></div>
 
             <div className="w-full lg:w-5/12 relative min-h-62.5 md:min-h-75 overflow-hidden shrink-0 bg-[#0a0a0a]">
-              <Image src={event.image} alt={event.title} fill className="object-cover transition-transform duration-700 md:group-hover:scale-105" />
+              <Image src={event.image} alt={event.title} fill className={`object-cover transition-transform duration-700 md:group-hover:scale-105 ${event.id === 1 ? 'object-right' : 'object-center'}`} />
               <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/20 to-transparent opacity-90"></div>
               
               <div className={`absolute top-4 left-4 md:top-6 md:left-6 backdrop-blur-md px-4 py-2 md:px-5 md:py-3 rounded-2xl shadow-xl flex flex-col items-center leading-none border transition-colors duration-300 ${isLight ? 'bg-white/95 border-white/50 text-slate-900' : 'bg-black/60 border-white/20 text-white'}`}>
                 <span className="text-xl md:text-2xl font-black">{event.date}</span>
                 <span className="text-[10px] font-bold uppercase tracking-widest mt-1">{event.month}</span>
               </div>
+
+              {event.isUpcoming && (
+                <div className="absolute top-4 right-4 bg-emerald-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-emerald-400">
+                  Upcoming Mega Event
+                </div>
+              )}
             </div>
 
             <div className="w-full lg:w-7/12 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative z-10">
@@ -98,30 +149,39 @@ export default function EventsSection({ isLight, setSelectedEvent }: { isLight: 
                 {event.title}
               </h3>
               
-              <p className={`text-sm md:text-base leading-relaxed font-medium mb-6 md:mb-10 transition-colors ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+              <p className={`text-sm md:text-base leading-relaxed font-medium mb-6 md:mb-8 transition-colors ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                 {event.description}
               </p>
 
-              <div className="flex flex-wrap items-center justify-between gap-4 mt-auto">
-                <div className="flex items-center gap-4">
-                  <div className="flex -space-x-3">
-                    <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border-2 flex items-center justify-center ${isLight ? 'border-white bg-blue-100 text-blue-500' : 'border-[#0a0a0a] bg-blue-900/50 text-blue-300'}`}><i className="fa-solid fa-user text-[10px] md:text-xs"></i></div>
-                    <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border-2 flex items-center justify-center ${isLight ? 'border-white bg-indigo-100 text-indigo-500' : 'border-[#0a0a0a] bg-indigo-900/50 text-indigo-300'}`}><i className="fa-solid fa-code text-[10px] md:text-xs"></i></div>
-                    <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border-2 flex items-center justify-center ${isLight ? 'border-white bg-cyan-100 text-cyan-500' : 'border-[#0a0a0a] bg-cyan-900/50 text-cyan-300'}`}><i className="fa-solid fa-lightbulb text-[10px] md:text-xs"></i></div>
-                  </div>
-                  <span className={`text-xs md:text-sm font-bold transition-colors ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{event.participantsText}</span>
+              <div className="flex flex-wrap items-center justify-between gap-4 mt-auto pt-4 border-t border-current/10">
+                <div className="flex items-center gap-2">
+                  <i className="fa-solid fa-graduation-cap text-indigo-500 text-sm"></i>
+                  <span className={`text-xs md:text-sm font-bold transition-colors ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>{event.participantsText}</span>
                 </div>
 
-                <button 
-                  onClick={() => setSelectedEvent(event)}
-                  className={`px-5 md:px-6 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all flex items-center gap-2 border w-full md:w-auto justify-center ${
-                    isLight 
-                      ? 'bg-slate-900 text-white border-slate-900 hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/30' 
-                      : 'bg-white text-black border-white hover:bg-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]'
-                  }`}
-                >
-                  Read Summary <i className="fa-solid fa-arrow-right"></i>
-                </button>
+                <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                  {event.registrationLink && (
+                    <a 
+                      href={event.registrationLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/20 hover:scale-105 active:scale-95 flex-1 sm:flex-none"
+                    >
+                      <i className="fa-solid fa-paper-plane"></i> Register Now
+                    </a>
+                  )}
+
+                  <button 
+                    onClick={() => setSelectedEvent(event)}
+                    className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 border flex-1 sm:flex-none ${
+                      isLight 
+                        ? 'bg-slate-900 text-white border-slate-900 hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/30' 
+                        : 'bg-white text-black border-white hover:bg-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]'
+                    }`}
+                  >
+                    Read Details <i className="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </motion.div>

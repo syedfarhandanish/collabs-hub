@@ -99,7 +99,6 @@ export default function GlobalModals({ isLight, isCmdOpen, setIsCmdOpen, isPriva
                 <p className="text-base md:text-lg font-medium">Your privacy is sacred to us. This Privacy Policy explains exactly how we collect, use, store and protect your information in Collabs.</p>
                 <p>We follow strict global data protection guidelines and Pakistan’s applicable laws. Nothing is shared with third parties without explicit consent or legal requirement.</p>
                 
-                {/* Privacy content points simplified for brevity in view, acts same as yours */}
                 <h3 className={`text-lg md:text-xl font-bold mt-6 md:mt-8 mb-3 md:mb-4 ${isLight ? 'text-slate-900' : 'text-white'}`}>Information We Collect</h3>
                 <ul className="list-disc pl-5 space-y-1.5 md:space-y-2">
                   <li>Full name (only for internal verification)</li>
@@ -172,15 +171,61 @@ export default function GlobalModals({ isLight, isCmdOpen, setIsCmdOpen, isPriva
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight drop-shadow-lg text-white">
                     {selectedEvent.title}
                   </h2>
+                  
                   <div className={`mt-2 md:mt-4 space-y-2 md:space-y-3 text-xs md:text-sm font-medium p-4 md:p-5 rounded-xl md:rounded-2xl backdrop-blur-md border ${isLight ? 'bg-white/90 border-white/50 text-slate-800 shadow-sm' : 'bg-black/50 border-white/10 text-slate-300'}`}>
-                    <div className="flex items-start gap-3"><i className="fa-regular fa-calendar mt-0.5 opacity-70 w-4 text-center"></i><p>{selectedEvent.details.dateFull}</p></div>
-                    <div className="flex items-start gap-3"><i className="fa-solid fa-video mt-0.5 opacity-70 w-4 text-center"></i><p>{selectedEvent.type}</p></div>
-                    <div className="flex items-start gap-3"><i className="fa-solid fa-user-tie mt-0.5 opacity-70 w-4 text-center"></i><p>Hosted by {selectedEvent.details.hostedBy}</p></div>
+                    <div className="flex items-start gap-3">
+                      <i className="fa-regular fa-calendar mt-0.5 opacity-70 w-4 text-center"></i>
+                      <p>{selectedEvent.details.dateFull}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <i className="fa-solid fa-video mt-0.5 opacity-70 w-4 text-center"></i>
+                      <p>{selectedEvent.type}</p>
+                    </div>
+                    {selectedEvent.details.venue && (
+                      <div className="flex items-start gap-3">
+                        <i className="fa-solid fa-location-dot mt-0.5 opacity-70 w-4 text-center"></i>
+                        <p>{selectedEvent.details.venue}</p>
+                      </div>
+                    )}
+                    <div className="flex items-start gap-3">
+                      <i className="fa-solid fa-user-tie mt-0.5 opacity-70 w-4 text-center"></i>
+                      <p>Hosted by {selectedEvent.details.hostedBy}</p>
+                    </div>
+                    <div className="flex items-start gap-3 pt-3 border-t border-current/10">
+                      <i className="fa-solid fa-users mt-0.5 opacity-70 w-4 text-center"></i>
+                      <p>{selectedEvent.details.attendees}</p>
+                    </div>
                   </div>
 
-                  <a href="/First Meeting - Collabs Launch - Summary.pdf" download className={`mt-2 md:mt-4 w-full py-3 px-4 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 md:gap-3 backdrop-blur-md border shadow-sm ${isLight ? 'bg-white/90 border-white/50 text-indigo-700 hover:bg-indigo-50' : 'bg-black/50 border-white/20 text-cyan-400 hover:bg-white/10'}`}>
-                    <i className="fa-solid fa-file-arrow-down text-base md:text-lg"></i> Download Official Summary
-                  </a>
+                  {/* Modal Action Buttons: Registration & Summary Download */}
+                  <div className="flex flex-col gap-2 mt-2 md:mt-4">
+                    {selectedEvent.registrationLink && (
+                      <a 
+                        href={selectedEvent.registrationLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-full py-3 px-4 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-500/30 hover:scale-[1.02] active:scale-95"
+                      >
+                        <i className="fa-solid fa-paper-plane text-base"></i>
+                        Register for SAF 2026
+                      </a>
+                    )}
+
+                    {!selectedEvent.isUpcoming && (
+                      <a 
+                        href="/First Meeting - Collabs Launch - Summary.pdf" 
+                        download 
+                        className={`w-full py-3 px-4 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold transition-all flex items-center justify-center gap-2 backdrop-blur-md border shadow-sm ${
+                          isLight 
+                            ? 'bg-white/90 border-white/50 text-indigo-700 hover:bg-indigo-50' 
+                            : 'bg-black/50 border-white/20 text-cyan-400 hover:bg-white/10'
+                        }`}
+                      >
+                        <i className="fa-solid fa-file-arrow-down text-base"></i>
+                        Download Official Summary
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -192,7 +237,10 @@ export default function GlobalModals({ isLight, isCmdOpen, setIsCmdOpen, isPriva
                         {section.title}
                         <span className={`h-px flex-1 ${isLight ? 'bg-slate-200' : 'bg-white/10'}`}></span>
                       </h3>
-                      <p className="text-sm md:text-base lg:text-lg leading-relaxed font-medium">{section.body}</p>
+                      {/* Using whitespace-pre-wrap to respect newlines for sections like Exhibition Categories */}
+                      <p className="text-sm md:text-base lg:text-lg leading-relaxed font-medium whitespace-pre-wrap">
+                        {section.body}
+                      </p>
                     </div>
                   ))}
                   <div className={`pt-6 md:pt-8 border-t flex flex-col items-center text-center opacity-60 ${isLight ? 'border-slate-200' : 'border-white/10'}`}>
